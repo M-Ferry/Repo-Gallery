@@ -1,12 +1,12 @@
 ///start coding -- This is where your profile info will show
 const overview = document.querySelector(".overview");
-const repoList = document.querySelector(".repo-list");
-const allreposContainer = document.querySelector(".repos");
-const repoData = document.querySelector(".repo-data");
-
-
-/// M-Ferry's username
 const username = "M-Ferry";
+const repoList = document.querySelector(".repo-list");
+const allReposContainer = document.querySelector(".repos");
+const repoData = document.querySelector(".repo-data");
+const viewReposButton = document.querySelector(".view-repos");
+const filterInput = document.querySelector(".filter-repos");
+
 
 //ASYNC Function
 const gitUserInfo = async function () {
@@ -80,19 +80,29 @@ const getRepoInfo = async function (repoName) {
 };
 
 const displayRepoInfo = function (repoInfo, languages) {
+     viewReposButton.classList.remove("hide");
      repoData.innerHTML = "";
-     repoData.classList.add(".hide");
-     allreposContainer.classList.add(".hide");
+     repoData.classList.remove("hide");
+     allreposContainer.classList.add("hide");
      const div = document.createElement("div");
      div.innerHTML = `
      <h3>Name: ${repoInfo.name}</h3>
      <p>Description: ${repoInfo.description}</p>
      <p>Default Branch: ${repoInfo.default_branch}</p>
      <p>Languages: ${languages.join(", ")}</p>
-     <a class="visit" href="${repoInfo.html_url}" target="_blank" rel="noreferrer noopener">View Repo on Github!</a>`;
-repoData.append(div);
+     <a class="visit" href="${repoInfo.html_url}" target="_blank" rel="noreferrer noopener">View Repo on Github!</a>
+     `;
+
+     repoData.append(div);
 };
      
+
+
+
+
+
+
+
 
 
 
