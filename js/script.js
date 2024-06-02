@@ -83,7 +83,8 @@ const displayRepoInfo = function (repoInfo, languages) {
      viewReposButton.classList.remove("hide");
      repoData.innerHTML = "";
      repoData.classList.remove("hide");
-     allreposContainer.classList.add("hide");
+     allReposContainer.classList.add("hide");
+     
      const div = document.createElement("div");
      div.innerHTML = `
      <h3>Name: ${repoInfo.name}</h3>
