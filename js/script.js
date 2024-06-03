@@ -8,6 +8,7 @@ const viewReposButton = document.querySelector(".view-repos");
 const filterInput = document.querySelector(".filter-repos");
 
 
+
 //ASYNC Function
 const gitUserInfo = async function () {
      const userInfo = await fetch (`https://api.github.com/users/${username}`);
@@ -97,21 +98,10 @@ const displayRepoInfo = function (repoInfo, languages) {
      repoData.append(div);
 };
      
+viewReposButton.addEventListener("click", function () {
+     allReposContainer.classList.remove("hide");
+     repoData.classList.add("hide");
+     viewReposButton.classList.add("hide");
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+////About to add Search box
