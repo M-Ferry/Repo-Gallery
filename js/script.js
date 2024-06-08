@@ -46,6 +46,7 @@ displayRepos(repoData);
 };
  
 const displayRepos = function (repos) {
+     filterInput.classList.remove("hide");
      for (const repo of repos) {
           const repoItem = document.createElement("li");
           repoItem.classList.add("repo");
@@ -104,4 +105,28 @@ viewReposButton.addEventListener("click", function () {
      viewReposButton.classList.add("hide");
 });
 
-////About to add Search box
+////SEARCH BOX
+
+filterInput.addEventListener("input", function (e) {
+     const searchText = e.target.value;
+     const repos = document.querySelectorAll(".repo"); 
+     const searchLowerText = searchText.toLowerCase();
+     
+     for (const repo of repos) {
+          const repoLowerText = repo.innerText.toLowerCase();
+          if (repoLowerText.includes(searchLowerText)) {
+          repo.classList.remove("hide");
+          } else {
+          repo.classList.add("hide");
+          }
+   }
+ });
+
+
+
+
+
+
+
+
+
